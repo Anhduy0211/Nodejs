@@ -12,6 +12,7 @@ admin.initializeApp({
     databaseURL:"https://fir-reactnative-7453c.firebaseio.com"
 })
 
+var port_number = process.env.PORT || 3000;
 
 const port=3000;
 app.get('/',(req,res)=>{
@@ -45,19 +46,26 @@ app.get("/questions",async (req,res)=>{
         }
         res.send({
             Quiz: ListQuestion,
-        },30000)
+        })
     }
     catch(err){
         res.send("Failed to get data")
     }
 })
 
-app.listen(port,(err)=>{
+// var server = http.createServer((req,res)=>{
+
+// })
+// server.listen(process.env.PORT||80,()=>{
+//     console.log("Listening on port 80");
+// })
+
+app.listen(port_number,(err)=>{
     if(err){
         console.log(err)
     }
     else{
-        console.log(`Port is running on localhostL:${port}`)
+        console.log(`Port is running on localhostL:${port_number}`)
     }
     
 })
