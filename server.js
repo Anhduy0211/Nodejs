@@ -45,7 +45,7 @@ app.get("/questions",async (req,res)=>{
         }
         res.send({
             Quiz: ListQuestion,
-        })
+        },30000)
     }
     catch(err){
         res.send("Failed to get data")
